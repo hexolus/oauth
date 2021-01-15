@@ -1,0 +1,26 @@
+{
+    "name": "hexolus/oauth",
+    "description": "OAuth Interfaces by Hexolus",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Meta Sanjaya",
+            "email": "metasanjaya@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.2",
+        "nesbot/carbon": "^2.43"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hexolus\\Api\\Oauth\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
