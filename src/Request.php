@@ -25,20 +25,20 @@ class Request {
       $this->refreshTokenUrl = $refreshTokenUrl;
     }
 
-    public function getAccessToken()
+    public function requestAccessToken($additionalHeaders = [], $body = '')
     {
         if(!($this->response instanceof Response)) {
-            return $this->doRequest($this->url);
+            return $this->doRequest($this->url, $additionalHeaders, $body);
         }
 
         if(Carbon::now()->isBefore($this->mustRequestAgainOn)) {
             return $this->response->access_token;
         } else {
             if(!$this->refreshTokenUrl) {
-                return $this->doRequest($this->url);
+                return $this->doRequest($this->url, $additionalHeaders, $body);
             } else {
                 // TODO: Refetch Access Token With Refresh Token
-                return $this->doRequest($this->url);
+                return $this->doRequest($this->url, $additionalHeaders, $body);
             }
         }
         
